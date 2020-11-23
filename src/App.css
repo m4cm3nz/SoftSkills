@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width:100%;
+    background-image:url("/public/assets/darwin-header.jpg");
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #121214;
+    font-family: Fira Sans,sans-serif;  
+    color: #fff; 
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,700;0,900;1,300&display=swap');
+
+/* background-image: url("/public/assets/adaptable-flower.jpg");
+background-position: center;
+background-repeat: no-repeat; */
+
+blockquote{
+    margin: 20px;
+    font-family: Lora, serif;
+}
+
+blockquote p strong {
+    font-size:  1.5em;    
+}
+
+blockquote p {
+    font-size:  1.5em;    
+}
+
+.app-content {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.heros{
+    display: flex;
+    padding: 25px;
+}
+
+.heros span img{
+    height: 80px;
+    border-radius: 3rem;  
+    margin : 10px;
+}
+
+.heros span a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header h1 {
+    font-size: 3.5em;    
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #8257E6;
+    text-decoration: none;
+}
+
+card {
+    padding: 20px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #201E29;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    width: 720px;
+    margin-bottom: 20px;    
+}
+
+
+.intro{
+    padding: 20px;
+    width: 800px;
+    font-size: 1.1em;
+    background-color: #201E29;
+    opacity: 0.6;
+}
+
+.footer{
+    width: 720px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+ol, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
