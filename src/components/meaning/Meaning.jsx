@@ -1,12 +1,19 @@
 import React from 'react';
 
 function Meaning() {
-
     return (
-        <card>
-            <h1>a&middot;dapt&middot;a&middot;bil&middot;i&middot;ty</h1>
+        <section className="card meaning">
+            <h2>a&middot;dapt&middot;a&middot;bil&middot;i&middot;ty</h2>
             <p>/əˌdaptəˈbilədē/</p>
-            <p><a href="https://www.google.com/search?rlz=1C1CHZN_enBR926BR926&amp;sxsrf=ALeKk00dHTVNZxLhqXN-MIX-lwTgs7Quyw:1605837511198&amp;q=how+to+pronounce+adaptability&amp;stick=H4sIAAAAAAAAAOMIfcRoxy3w8sc9YSnTSWtOXmPU5-INKMrPK81LzkwsyczPE5LgYglJLcoVEpDi4-JJTEksKElMyszJLKm0YlFiSs3jWcQqm5FfrlCSr1AA1JcP1JiqgKwMAOQzZmpjAAAA&amp;pron_lang=en&amp;pron_country=us&amp;sa=X&amp;ved=2ahUKEwjo2q_zgpDtAhUVIrkGHdFvDG8Q3eEDMAB6BAgFEAg">Learn to pronounce</a></p>
+            <p>
+                <a
+                    href="https://www.google.com/search?q=how+to+pronounce+adaptability"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Learn to pronounce
+                </a>
+            </p>
             <p>noun</p>
             <ol>
                 <li>
@@ -20,7 +27,7 @@ function Meaning() {
                     </ul>
                 </li>
             </ol>
-        </card>
+        </section>
     );
 }
 

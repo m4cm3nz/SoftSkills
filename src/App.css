@@ -1,134 +1,279 @@
-*{
-    margin:0;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300&family=Lora:ital@0;1&display=swap');
+
+:root {
+    --bg: #121214;
+    --surface: #201E29;
+    --surface-hover: #29263a;
+    --border: #2c2a37;
+    --text: #e1e1e6;
+    --text-muted: #a8a8b3;
+    --accent: #8257e6;
+    --accent-hover: #9466ff;
+    --max-width: 760px;
+}
+
+* {
+    margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;
 }
 
-body{
-    width:100%;
-    background-image:url("/public/assets/darwin-header.jpg");
-    height: 450px;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg);
+    font-family: 'Fira Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ===== Hero / Header ===== */
+.hero {
+    position: relative;
+    /* Same width as the content cards, including their side gutters. */
+    width: min(var(--max-width), calc(100% - 48px));
+    margin: 24px auto 0;
+    /* Fixed height = the image's natural height at full container width
+       (760 × 430/900). On narrower viewports the container shrinks but the
+       image keeps this size anchored left, so it crops right-to-left. */
+    height: calc(var(--max-width) * 430 / 900);
+    overflow: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 24px;
+    background-image: url('./assets/darwin-cover.jpg');
+    background-position: left center;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #121214;
-    font-family: Fira Sans,sans-serif;  
-    color: #fff; 
+    background-size: auto 100%;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,700;0,900;1,300&display=swap');
-
-/* background-image: url("/public/assets/adaptable-flower.jpg");
-background-position: center;
-background-repeat: no-repeat; */
-
-blockquote{
-    margin: 20px;
-    font-family: Lora, serif;
+/* The artwork behind the hero is busy and bright in places, so the text carries
+   its own contrast via layered shadows rather than an overlay on the image. */
+.hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    max-width: 14ch;
+    line-height: 1.05;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 4px 24px rgba(0, 0, 0, 0.8);
 }
 
-blockquote p strong {
-    font-size:  1.5em;    
+.hero p {
+    margin-top: 16px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 600;
+    color: #fff;
+    max-width: 40ch;
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.95),
+        0 2px 16px rgba(0, 0, 0, 0.85);
 }
 
-blockquote p {
-    font-size:  1.5em;    
-}
-
+/* ===== Layout ===== */
+/* The hero lives outside this container, so it stays full-bleed while the
+   content below keeps its breathing room. */
 .app-content {
     display: flex;
     flex-direction: column;
-    padding: 60px;
+    align-items: center;
+    gap: 24px;
+    padding: 56px 24px 72px;
 }
 
-.heros{
+/* ===== Card ===== */
+.card {
+    width: 100%;
+    max-width: var(--max-width);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card p {
+    margin-bottom: 12px;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+.card h1,
+.card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+}
+
+/* ===== Dictionary entry ===== */
+.meaning h2 {
+    font-size: 2.25rem;
+    margin-bottom: 4px;
+}
+
+/* Phonetic spelling */
+.meaning > p:first-of-type {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* "noun" */
+.meaning > p:nth-of-type(3) {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+/* Usage examples are quoted — set them apart from the definitions. */
+.meaning li p + p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* ===== Quotes ===== */
+blockquote {
+    margin: 24px 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--accent);
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    font-size: 1.35rem;
+}
+
+blockquote p strong {
+    font-size: 1.5rem;
+    font-style: normal;
+}
+
+/* ===== Heroes (adaptation superheroes) ===== */
+.heros {
     display: flex;
-    padding: 25px;
-}
-
-.heros span img{
-    height: 80px;
-    border-radius: 3rem;  
-    margin : 10px;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    padding: 24px 0;
 }
 
 .heros span a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-weight: 600;
 }
 
-
-header h1 {
-    font-size: 3.5em;    
-    width: 300px;
-    margin-bottom: 20px;
-}
-
-a {
-    color: #8257E6;
+.heros span a:hover {
     text-decoration: none;
+    color: var(--accent-hover);
 }
 
-card {
-    padding: 20px;
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #201E29;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    width: 720px;
-    margin-bottom: 20px;    
+.heros span img {
+    height: 96px;
+    width: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-
-.intro{
-    padding: 20px;
-    width: 800px;
-    font-size: 1.1em;
-    background-color: #201E29;
-    opacity: 0.6;
+.heros span a:hover img {
+    transform: scale(1.06);
+    border-color: var(--accent);
 }
 
-.footer{
-    width: 720px;
+/* ===== Lists (dictionary entry) ===== */
+.card ol {
+    padding-left: 24px;
+    margin: 12px 0;
 }
 
-p {
-    margin-bottom: 5px;
+.card ul {
+    padding-left: 24px;
+    margin: 8px 0;
+    list-style: disc;
 }
 
-ol, ul, li {
-    margin: 0;
-    padding: 0;
+.card li {
+    margin-bottom: 8px;
 }
 
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
+/* ===== Footer ===== */
+.footer {
+    width: 100%;
+    max-width: var(--max-width);
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    margin-top: 24px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
-ol {
+.footer p {
+    margin-bottom: 6px;
+}
+
+.footer strong {
     display: block;
-    list-style-type: decimal;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    margin-bottom: 8px;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
-li {
-    text-align: -webkit-match-parent;
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+    /* Match the tighter content gutters below. */
+    .hero {
+        width: calc(100% - 32px);
+        margin-top: 16px;
+    }
+
+    .app-content {
+        padding: 40px 16px 56px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+
+    blockquote p {
+        font-size: 1.15rem;
+    }
+
+    .heros {
+        gap: 16px;
+    }
 }
