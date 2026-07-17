@@ -16,6 +16,8 @@ function Footer() {
                 <a href="https://www.linkedin.com/in/m4cm3nz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 {' · '}
                 <a href="https://twitter.com/m4cm3nz" target="_blank" rel="noopener noreferrer">Twitter</a>
+                {' · '}
+                <a href="https://buymeacoffee.com/rmcmenzc" target="_blank" rel="noopener noreferrer">&#9749; Buy me a coffee</a>
             </p>
         </footer>
     );
