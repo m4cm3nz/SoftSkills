@@ -3,6 +3,12 @@ import darwin from '../assets/darwin.jpg';
 import mystique from '../assets/mystique.jpg';
 import helix from '../assets/helix.jpg';
 
+const heroes = [
+    { name: 'Mystique', image: mystique, wiki: 'https://en.wikipedia.org/wiki/Mystique_(comics)' },
+    { name: 'Darwin', image: darwin, wiki: 'https://en.wikipedia.org/wiki/Darwin_(Marvel_Comics)' },
+    { name: 'Helix', image: helix, wiki: 'https://en.wikipedia.org/wiki/Helix_(Marvel_Comics)' },
+];
+
 function Content() {
     return (
         <section className="card content">
@@ -17,24 +23,14 @@ function Content() {
             <br />
             <p>If none of the above helped you make up your mind about my favorite soft skill, check out these superheroes with powers of adaptation (yes, one of them is literally named Darwin). Maybe you&rsquo;ll identify with one of them.</p>
             <div className="heros">
-                <span>
-                    <a href="https://en.wikipedia.org/wiki/Mystique_(comics)" target="_blank" rel="noopener noreferrer">
-                        <img src={mystique} alt="Mystique" />
-                        Mystique
-                    </a>
-                </span>
-                <span>
-                    <a href="https://en.wikipedia.org/wiki/Darwin_(Marvel_Comics)" target="_blank" rel="noopener noreferrer">
-                        <img src={darwin} alt="Darwin" />
-                        Darwin
-                    </a>
-                </span>
-                <span>
-                    <a href="https://en.wikipedia.org/wiki/Helix_(Marvel_Comics)" target="_blank" rel="noopener noreferrer">
-                        <img src={helix} alt="Helix" />
-                        Helix
-                    </a>
-                </span>
+                {heroes.map(({ name, image, wiki }) => (
+                    <span key={name}>
+                        <a href={wiki} target="_blank" rel="noopener noreferrer">
+                            <img src={image} alt={name} />
+                            {name}
+                        </a>
+                    </span>
+                ))}
             </div>
             <br />
             <p>Still not convinced? Read about other soft skills and pick your favorite:</p>
